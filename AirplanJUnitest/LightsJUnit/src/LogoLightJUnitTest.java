@@ -4,15 +4,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CargoCompartmentLightJUnitTest {
-	private CargoCompartmentLight NManufacturer,NType,NId;
+
+public class LogoLightJUnitTest {
+	private LogoLight NManufacturer,NType,NId;
 	 String manufacturer=" Boeing";
 	 String type ="Einstahlig";
 	 String id ="234f";
     private boolean isOn;
-    private int brightnessLevel;
-    CargoCompartmentLight test= new  CargoCompartmentLight(manufacturer,type,id,isOn);
-    
+    LogoLight test= new LogoLight(manufacturer,type,id,isOn);
   @Test
   public void versionTest(){
 	  assertEquals("234f-Einstahlig",test.version());
@@ -20,10 +19,11 @@ public class CargoCompartmentLightJUnitTest {
   @Before
   public void setUp() throws Exception{
  	 System.out.println("Run @Before");
- 	 NManufacturer = new  CargoCompartmentLight("Airbus",null,"5" ,false);
- 	 NType = new  CargoCompartmentLight(null,"Zweistahlig",null,false);
- 	 NId = new  CargoCompartmentLight(null,null,"09825h",false);
- 	 test.on(); 
+ 	 NManufacturer = new LogoLight("Airbus",null,null,false);
+ 	 NType = new LogoLight(null,"Zweistahlig",null,false);
+ 	 NId = new LogoLight(null,null,"09825h",false);
+ 	 test.on();
+ 	 
   }
   @After
   public void tearDown() throws Exception{
@@ -36,10 +36,6 @@ public class CargoCompartmentLightJUnitTest {
  	 assertEquals("Airbus",NManufacturer.getManufacturer());
  	 NManufacturer.setManufacturer("Boeing");
  	 assertEquals("Boeing",NManufacturer.getManufacturer());
- 	 
- 	 
- 	 
- 	
   }
   @Test
   public void testGetterSetterType(){
@@ -62,39 +58,5 @@ public void testGetterSetterIsOn(){
 	test.setIsOn(false);
 	assertEquals(false,test.getIsOn());
 }
-@Test
-public void testGetterSetterBrightnessLevel(){
-	 System.out.println("Run @Test testGetterSetter");
-	 NId.setId("980929z");
-	 assertEquals("980929z",NId.getId());
-}
-@Test
-public void testGetterSettersetBrightnessLevel(){
-	System.out.println("Run @Test testGetterSetter");
-	test.dim(-7);
-	assertEquals(0,test.getBrightnessLevel());
-	assertFalse(isOn);
-	test.dim(-7);
-	assertEquals(0,test.getBrightnessLevel());
-	assertFalse(isOn); 
-	test.dim(200);
-	assertEquals(100,test.getBrightnessLevel());
-	assertTrue(isOn);
-	test.dim(100);
-	assertEquals(100,test.getBrightnessLevel());
-	assertTrue(isOn);
-	test.dim(20);
-	assertEquals(10,test.getBrightnessLevel());
-	
-}
-@Test
-public void testGetterSetterdim(){
-	System.out.println("Run @Test testGetterSetter");
-	test.setBrightnessLevel(-1);
-	assertEquals(0,test.getBrightnessLevel());
-	test.setBrightnessLevel(5);
-	assertEquals(5,test.getBrightnessLevel());
-}
-}
 
-
+}
